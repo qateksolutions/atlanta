@@ -7,7 +7,7 @@ Selenium Automation Project for September 2020 batch
  3. Now download all the maven dependencies by right clicking on the project then select maven > Reload project
 
 ### Test Execution
-You can execute the test in 2 ways 
+You can execute the test in two ways 
  1. Using testng.xml 
  2. Using Terminal
  
