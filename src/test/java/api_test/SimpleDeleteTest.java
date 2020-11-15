@@ -14,6 +14,7 @@ public class SimpleDeleteTest {
 
     @Test
     public void deleteSingleUser() {
+        LOGGER.info("---------[API Test] DELETE - Single User---------");
         // Specify the base URL or endpoint of the REST API
         RestAssured.baseURI = "https://reqres.in/api/users";
 
@@ -33,5 +34,6 @@ public class SimpleDeleteTest {
 
         // Assert that the correct status is returned.
         Assert.assertEquals(response.getStatusCode(), 204);
+        LOGGER.info("---------[API Test] End Of Test---------");
     }
 }

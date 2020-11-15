@@ -16,6 +16,7 @@ public class SimplePatchTest {
 
     @Test
     public void updateUserSingleField() {
+        LOGGER.info("---------[API Test] PATCH - Update Single Field ---------");
         String userRole = "Engineer";
 
         RestAssured.baseURI = "https://reqres.in/api/users";
@@ -43,5 +44,6 @@ public class SimplePatchTest {
         // Validate that user is updated
         String record = jsonPath.getString("job");
         Assert.assertEquals(record, userRole);
+        LOGGER.info("---------[API Test] End Of Test---------");
     }
 }
