@@ -16,6 +16,7 @@ public class SimplePostTest {
 
     @Test
     public void createNewUser() {
+        LOGGER.info("---------[API Test] POST - Create New User---------");
         String userName = "Ashraf Hossain";
         String userRole = "Tester";
 
@@ -47,5 +48,6 @@ public class SimplePostTest {
         // Validate that suer record is not null
         String record = jsonPath.getString("name");
         Assert.assertEquals(record, userName);
+        LOGGER.info("---------[API Test] End of Test---------");
     }
 }

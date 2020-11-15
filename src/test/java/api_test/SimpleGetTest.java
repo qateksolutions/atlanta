@@ -8,6 +8,7 @@ import io.restassured.specification.RequestSpecification;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class SimpleGetTest {
@@ -15,6 +16,7 @@ public class SimpleGetTest {
 
     @Test
     public void getAllUsers() {
+        LOGGER.info("---------[API Test] Read all Users---------");
         // Specify the base URL or endpoint of the REST API
         RestAssured.baseURI = "https://reqres.in/api/users?page=2";
 
@@ -41,10 +43,12 @@ public class SimpleGetTest {
         // Validate that suer record is not null
         String record = jsonPath.getString("data[0]");
         Assert.assertNotNull(record, "User record is null");
+        LOGGER.info("---------[API Test] End of Test---------");
     }
 
     @Test
     public void getSingleUser() {
+        LOGGER.info("---------[API Test] GET - Read Single User---------");
         // Specify the base URL or endpoint of the REST API
         RestAssured.baseURI = "https://reqres.in/api/users";
 
@@ -71,5 +75,6 @@ public class SimpleGetTest {
         // Validate that suer record is not null
         String record = jsonPath.getString("data.first_name");
         Assert.assertEquals(record, "Janet");
+        LOGGER.info("---------[API Test] End Of Test---------");
     }
 }

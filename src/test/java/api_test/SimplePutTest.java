@@ -16,6 +16,7 @@ public class SimplePutTest {
 
     @Test
     public void updateUserFields() {
+        LOGGER.info("---------[API Test] PUT - Update User Fields---------");
         String userName = "Md Alam";
         String userRole = "Engineer";
 
@@ -43,5 +44,6 @@ public class SimplePutTest {
         // Validate that user is updated
         String record = jsonPath.getString("name");
         Assert.assertEquals(record, userName);
+        LOGGER.info("---------[API Test] End of Test---------");
     }
 }

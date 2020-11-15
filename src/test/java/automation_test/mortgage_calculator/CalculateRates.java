@@ -25,6 +25,8 @@ public class CalculateRates {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
 
+        LOGGER.info("---------------Test Name: CalculateRates----------");
+
         ReadConfigFiles readConfigFiles = new ReadConfigFiles();
         Properties prop = readConfigFiles.getPropertyValues();
         String url = prop.getProperty("Url");
@@ -50,6 +52,7 @@ public class CalculateRates {
 
     @AfterMethod
     public void closeBrowser() {
+        LOGGER.info("--End Test case: Calculate Rates--");
         ActOn.browser(driver).closeBrowser();
     }
 }
