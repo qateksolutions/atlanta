@@ -1,13 +1,10 @@
-package step_definitions;
+package cucumber.step_definitions;
 
 import org.junit.Assert;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
-
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.chrome.ChromeDriver;
 import command_providers.ActOn;
 
 import org.apache.logging.log4j.LogManager;
@@ -21,14 +18,12 @@ public class LoginSteps {
     private static final By Login = By.id("login");
     private static final By Logout = By.id("logout");
     private static final By InvalidPassword = By.xpath("//*[@id='pageLogin']/form//div[text()='Password is invalid']");
-    private static Logger LOGGER = LogManager.getLogger(LoginSteps.class);
-    WebDriver driver;
+    private static final Logger LOGGER = LogManager.getLogger(LoginSteps.class);
+    WebDriver driver = Hooks.driver;
 
     // Precondition
     @Given("^a user is on the login page$")
     public void navigateToLoginPage() {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
         ActOn.browser(driver).openBrowser("https://example.testproject.io/web/");
         LOGGER.info("User is in the Login Page");
     }
@@ -42,7 +37,7 @@ public class LoginSteps {
     }
 
     // Main Action
-    @When("^user enters \"(.+?)\" and \"(.+?)\"$")
+    @When("^user enters username \"(.+?)\" and password \"(.+?)\"$")
     public void enterUserCredentials(String username, String password) {
         ActOn.element(driver, FullName).setValue(username);
         ActOn.element(driver, Password).setValue(password);
@@ -65,6 +60,7 @@ public class LoginSteps {
         ActOn.browser(driver).closeBrowser();
     }
 
+    // Assertion
     @Then("^user is failed to login$")
     public void validateUserIsFailedToLogin() {
         boolean invalidPassword = driver.findElement(InvalidPassword).isDisplayed();

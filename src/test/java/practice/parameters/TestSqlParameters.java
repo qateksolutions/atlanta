@@ -1,4 +1,4 @@
-package parameters;
+package practice.parameters;
 
 import org.testng.annotations.Test;
 import utilities.SqlConnector;

@@ -39,8 +39,8 @@ public class TestEnvironment {
             FirefoxOptions firefoxOptions = new FirefoxOptions();
             driver = new RemoteWebDriver(gridUrl, firefoxOptions);
         } else if (environment.equals("local") && browser.equals("chrome")) {
-            WebDriverManager.chromedriver().setup();
             LOGGER.info("Executing test in local");
+            WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver();
         }
 

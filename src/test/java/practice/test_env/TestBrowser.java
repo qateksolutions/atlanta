@@ -1,4 +1,4 @@
-package test_env;
+package practice.test_env;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;

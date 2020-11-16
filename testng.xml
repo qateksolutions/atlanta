@@ -3,13 +3,13 @@
 <suite name="test_automation" verbose="1">
     <test name="ui_automation">
         <classes>
-            <class name="automation_test.mortgage_calculator.CalculateMonthlyPayment"></class>
-            <class name="automation_test.mortgage_calculator.CalculateRates"></class>
+            <class name="automation_test.mortgage_calculator.CalculateMonthlyPayment" />
+            <class name="automation_test.mortgage_calculator.CalculateRates" />
         </classes>
     </test>
     <test name="api_automation">
         <packages>
-            <package name="api_test"></package>
+            <package name="api_test" />
         </packages>
     </test>
 </suite>

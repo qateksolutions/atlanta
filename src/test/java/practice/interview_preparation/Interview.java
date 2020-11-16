@@ -1,6 +1,5 @@
-package interview_preparation;
+package practice.interview_preparation;
 
-import com.google.common.primitives.Ints;
 import org.testng.annotations.Test;
 
 import java.util.*;
