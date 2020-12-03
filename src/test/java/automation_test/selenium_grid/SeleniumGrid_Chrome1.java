@@ -1,6 +1,5 @@
 package automation_test.selenium_grid;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 import utilities.TestEnvironment;

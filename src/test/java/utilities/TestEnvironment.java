@@ -21,8 +21,8 @@ public class TestEnvironment {
      * @return WebDriver object
      */
     public static WebDriver selectTestExecutionEnvironment() {
-        String environment = System.getProperty("environment");
-        String browser = System.getProperty("browser");
+        String environment = System.getProperty("environment") == null ? "local" : System.getProperty("environment");
+        String browser = System.getProperty("browser") == null ? "chrome" : System.getProperty("browser");
 
         try{
             gridUrl = new URL("http://localhost:4444/wd/hub");
@@ -38,7 +38,7 @@ public class TestEnvironment {
             LOGGER.info("Executing test in remote with firefox browser");
             FirefoxOptions firefoxOptions = new FirefoxOptions();
             driver = new RemoteWebDriver(gridUrl, firefoxOptions);
-        } else if (environment.equals("local") && browser.equals("chrome")) {
+        } else {
             LOGGER.info("Executing test in local");
             WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver();
